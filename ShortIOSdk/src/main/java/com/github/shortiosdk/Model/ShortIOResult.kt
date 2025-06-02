@@ -1,6 +1,6 @@
 package com.github.shortiosdk
 
-import com.github.shortio.ShortIOResponseModel
+import com.github.shortiosdk.ShortIOResponseModel
 
 public sealed class ShortIOResult {
     data class Success(val data: ShortIOResponseModel) : ShortIOResult()

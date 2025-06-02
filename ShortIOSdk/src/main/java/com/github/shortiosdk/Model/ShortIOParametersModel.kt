@@ -1,4 +1,4 @@
-package com.github.shortio
+package com.github.shortiosdk
 
 
 data class ShortIOParametersModel(

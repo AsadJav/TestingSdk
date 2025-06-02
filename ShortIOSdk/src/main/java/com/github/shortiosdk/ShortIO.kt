@@ -1,4 +1,4 @@
-package com.github.shortio
+package com.github.shortiosdk
 
 import com.github.shortiosdk.ShortIOErrorModel
 import okhttp3.*
