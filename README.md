@@ -20,31 +20,31 @@ To install the SDK via JitPack:
 ### Step 1. To add the JitPack repository to your build file, Add it in your root settings.gradle at the end of repositories:
 #### For Gradle:
 ```java
-    dependencyResolutionManagement {
-        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-        repositories {
-            mavenCentral()
-            maven { url 'https://jitpack.io' }
-        }
-    }
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+	repositories {
+	    mavenCentral()
+	    maven { url 'https://jitpack.io' }
+	}
+}
 ```
 #### For Gradle.kts
 ```kotlin
-	dependencyResolutionManagement {
-		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-		repositories {
-			mavenCentral()
-			maven { url = uri("https://jitpack.io") }
-		}
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+	repositories {
+		mavenCentral()
+		maven { url = uri("https://jitpack.io") }
 	}
+}
 ```
 ### Step 2. Add the dependency
 Open App level build.gradle file `build.gradle.kts (Module:app)`, Add the dependency:
 Example
 ```kotlin
-    dependencies {
-        implementation("com.github.User:Repo:Tag")
-    }
+dependencies {
+    implementation("com.github.User:Repo:Tag")
+}
 ```
 It will be:
 ```kotlin
@@ -58,8 +58,9 @@ Sync the Project with Gradle file, So the SDK can be Installed.
 ### Step 4. Import the SDK
 Import the SDK where it is needed by using:
 ```kotlin
-import com.github.shortio.ShortIOParametersModel
-import com.github.shortio.ShortioSdk
+import com.github.shortiosdk.ShortIOParametersModel
+import com.github.shortiosdk.ShortioSdk
+import com.github.shortiosdk.ShortIOResult
 ``` 
 
 ## 🔑 Getting Started
@@ -80,8 +81,8 @@ import com.github.shortio.ShortioSdk
 ### 🔗 SDK Usage
 
 ```kotlin
-import com.github.shortio.ShortIOParametersModel
-import com.github.shortio.ShortioSdk
+import com.github.shortiosdk.ShortIOParametersModel
+import com.github.shortiosdk.ShortioSdk
 import com.github.shortiosdk.ShortIOResult
 
 try {
