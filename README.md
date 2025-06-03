@@ -184,7 +184,7 @@ keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -sto
 
 ### 🔗 Step 4: Open the App Using a Deep Link
 
-1. Open a browser or messaging app on your device.
+1. Open a Notes, Email or messaging app on your device.
 
 2. Tap a deep link (e.g., https://yourdomain.com/your-path).
 
