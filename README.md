@@ -65,9 +65,7 @@ Sync the Project with Gradle file, So the SDK can be Installed.
 ### 4. Import the SDK
 Import the SDK where it is needed by using:
 ```kotlin
-import com.github.shortio.ShortioSdk
-import com.github.shortio.ShortIOParametersModel
-import com.github.shortiosdk.ShortIOResult
+import com.github.shortiosdk.ShortioSdk
 ``` 
 
 ## 🔑 Getting Started
@@ -87,8 +85,8 @@ import com.github.shortiosdk.ShortIOResult
 ### 🔗 SDK Usage
 
 ```kotlin
-import com.github.shortio.ShortioSdk
-import com.github.shortio.ShortIOParametersModel
+import com.github.shortiosdk.ShortioSdk
+import com.github.shortiosdk.ShortIOParametersModel
 import com.github.shortiosdk.ShortIOResult
 
 try {
