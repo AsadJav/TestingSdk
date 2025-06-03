@@ -56,7 +56,7 @@ dependencies {
 It will be:
 ```kotlin
 dependencies {
-	implementation("com.github.AsadJav:TestingSdk:v1.0.0")
+	implementation("com.github.AsadJav:TestingSdk:v1.0.1")
 }
 ```
 ### 3. Sync the Project
