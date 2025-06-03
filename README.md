@@ -98,7 +98,7 @@ try {
 **Note**: Both `domain` and `originalURL` are the required parameters. You can also pass optional parameters such as `path`, `title`, `utmParameters`, etc.
 
 ```kotlin
-let apiKey = "your_public_apiKey" // Replace with your Short.io Public API Key
+val apiKey = "your_public_apiKey" // Replace with your Short.io Public API Key
 
 thread {
     try {
@@ -141,7 +141,8 @@ To handle deep links via Short.io on Android, you'll need to set up Android App 
         
         <data
             android:scheme="https"
-            android:host="yourshortdomain.short.gy" />
+            android:host="yourshortdomain.short.gy"
+	    android:pathPrefix="/" />
     </intent-filter>
 </activity>
 ```
