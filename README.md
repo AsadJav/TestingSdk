@@ -47,15 +47,11 @@ dependencyResolutionManagement {
 
 Open App level build.gradle file `build.gradle.kts (Module:app)`, Add the dependency:
 
-```kotlin
-dependencies {
-	implementation("com.github.User:Repo:Tag")
-}
-```
 
 It will be:
 ```kotlin
 dependencies {
+	implementation("com.github.User:Repo:Tag") //// Example
 	implementation("com.github.AsadJav:TestingSdk:v1.0.1")
 }
 ```
@@ -185,6 +181,50 @@ keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -sto
 3. Tap on **“Add link”** under the **Open by Default** section.
 
 4. Add your URL and make sure to enable the checkbox for your link.
+
+### 🔗 Step 4: Open the App Using a Deep Link
+
+1. Open a browser or messaging app on your device.
+
+2. Tap a deep link (e.g., https://yourdomain.com/your-path).
+
+3. If configured properly, your app will appear as an option to handle the link, or it will directly open the app.
+
+### 🧭 Step 5: Handle Incoming URLs with onNewIntent() Method
+
+1. Open your main activity file (e.g., MainActivity.kt).
+
+2. Override the `onNewIntent()` method to receive new intents when the activity is already running:
+
+```kotlin
+override fun onNewIntent(intent: Intent) {
+    super.onNewIntent(intent)
+    handleIntent(intent)
+}
+```
+
+3. In the same activity, also handle the initial intent inside the `onCreate()` method:
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    handleIntent(intent)
+}
+```
+
+4. Create the `handleIntent()` method to extract the URL:
+
+```kotlin
+private fun handleIntent(intent: Intent) {
+     val data: Uri? = intent.data
+     data?.let {
+         val url = it.toString()
+         Log.d("DeepLink", "App opened via URL: $url")
+         // Add your handling logic here
+     }
+}
+```
+
 
 ### ✅ Final Checklist
 
