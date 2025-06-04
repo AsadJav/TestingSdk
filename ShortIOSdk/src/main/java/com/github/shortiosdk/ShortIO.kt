@@ -1,11 +1,11 @@
 package com.github.shortiosdk
 
-import com.github.shortiosdk.ShortIOErrorModel
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import com.google.gson.Gson
 import okhttp3.RequestBody.Companion.toRequestBody
 import com.github.shortiosdk.ShortIOResult
+import com.github.shortiosdk.ShortIOErrorModel
 
 
 object ShortioSdk {
