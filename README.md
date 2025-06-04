@@ -52,7 +52,7 @@ It will be:
 ```kotlin
 dependencies {
 	implementation("com.github.User:Repo:Tag") // Example
-	implementation("com.github.AsadJav:TestingSdk:v1.0.1") // Use this
+	implementation("com.github.AsadJav:TestingSdk:v1.0.3") // Use this
 }
 ```
 ### 3. Sync the Project
@@ -128,7 +128,7 @@ The `ShortIOParameters` struct is used to define the details of the short link y
 | `cloaking`          | `Boolean`   | ❌        | If `true`, hides the destination URL from the user           |
 | `password`          | `String`    | ❌        | Password to protect the short link                           |
 | `redirectType`      | `Int`       | ❌        | Type of redirect (e.g., 301, 302)                            |
-| `expiresAt`         | `Int`       | ❌        | Expiration timestamp in Unix format                          |
+| `expiresAt`         | `String`    | ❌        | Expiration timestamp in Unix format                          |
 | `expiredURL`        | `String`    | ❌        | URL to redirect after expiration                             |
 | `title`             | `String`    | ❌        | Custom title for the link                                    |
 | `tags`              | `[String]`  | ❌        | Tags to categorize the link                                  |
@@ -141,7 +141,7 @@ The `ShortIOParameters` struct is used to define the details of the short link y
 | `path`              | `String`    | ❌        | Custom path for the short link                               |
 | `androidURL`        | `String`    | ❌        | Fallback URL for Android                                     |
 | `iphoneURL`         | `String`    | ❌        | Fallback URL for iPhone                                      |
-| `createdAt`         | `Int`       | ❌        | Custom creation timestamp                                    |
+| `createdAt`         | `String`    | ❌        | Custom creation timestamp                                    |
 | `clicksLimit`       | `Int`       | ❌        | Maximum number of clicks allowed                             |
 | `passwordContact`   | `Boolean`   | ❌        | Whether contact details are required for password access     |
 | `skipQS`            | `Boolean`   | ❌        | If `true`, skips query string on redirect (default: `false`) |
