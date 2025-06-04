@@ -51,8 +51,8 @@ Open App level build.gradle file `build.gradle.kts (Module:app)`, Add the depend
 It will be:
 ```kotlin
 dependencies {
-	implementation("com.github.User:Repo:Tag") //// Example
-	implementation("com.github.AsadJav:TestingSdk:v1.0.1")
+	implementation("com.github.User:Repo:Tag") // Example
+	implementation("com.github.AsadJav:TestingSdk:v1.0.1") // Use this
 }
 ```
 ### 3. Sync the Project
