@@ -16,7 +16,21 @@ object ShortioSdk {
         val gson = Gson()
         val client = OkHttpClient()
         val mediaType = "application/json".toMediaType()
-        val jsonBody = gson.toJson(parameters)
+
+
+        val transformedParameters = parameters.copy(
+            expiresAt = parameters.expiresAt?.let {
+                it.toIntOrNull()?.toString() ?: it
+            },
+            ttl = parameters.ttl?.let {
+                it.toIntOrNull()?.toString() ?: it
+            },
+            createdAt = parameters.createdAt?.let {
+                it.toIntOrNull()?.toString() ?: it
+            }
+        )
+
+        val jsonBody = gson.toJson(transformedParameters)
         val body = jsonBody.toRequestBody(mediaType)
 
         val request = Request.Builder()

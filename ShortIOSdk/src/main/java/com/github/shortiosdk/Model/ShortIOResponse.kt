@@ -17,7 +17,7 @@ data class ShortIOResponseModel(
     val path: String? = null,
     val androidURL: String? = null,
     val iphoneURL: String? = null,
-    val createdAt: Int? = null,
+    val createdAt: String? = null,
     val clicksLimit: Int? = null,
     val passwordContact: Boolean? = null,
     val skipQS: Boolean = false,
@@ -38,6 +38,7 @@ data class ShortIOResponseModel(
     val OwnerId: Int? = null,
     val hasPassword: Boolean? = null,
     val User: ShortIOUserModel? = null,
+    val source: String? = null,
     val success: Boolean? = null,
     val duplicate: Boolean? = null
 )
