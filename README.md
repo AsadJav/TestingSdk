@@ -125,7 +125,7 @@ The `ShortIOParameters` struct is used to define the details of the short link y
 | ------------------- | ----------- | --------  | ------------------------------------------------------------ |
 | `domain`            | `String`    | ✅        | Your Short.io domain (e.g., `example.short.gy`)              |
 | `originalURL`       | `String`    | ✅        | The original URL to be shortened                             |
-| `cloaking`          | `Bool`      | ❌        | If `true`, hides the destination URL from the user           |
+| `cloaking`          | `Boolean`   | ❌        | If `true`, hides the destination URL from the user           |
 | `password`          | `String`    | ❌        | Password to protect the short link                           |
 | `redirectType`      | `Int`       | ❌        | Type of redirect (e.g., 301, 302)                            |
 | `expiresAt`         | `Int`       | ❌        | Expiration timestamp in Unix format                          |
@@ -143,9 +143,9 @@ The `ShortIOParameters` struct is used to define the details of the short link y
 | `iphoneURL`         | `String`    | ❌        | Fallback URL for iPhone                                      |
 | `createdAt`         | `Int`       | ❌        | Custom creation timestamp                                    |
 | `clicksLimit`       | `Int`       | ❌        | Maximum number of clicks allowed                             |
-| `passwordContact`   | `Bool`      | ❌        | Whether contact details are required for password access     |
-| `skipQS`            | `Bool`      | ❌        | If `true`, skips query string on redirect (default: `false`) |
-| `archived`          | `Bool`      | ❌        | If `true`, archives the short link (default: `false`)        |
+| `passwordContact`   | `Boolean`   | ❌        | Whether contact details are required for password access     |
+| `skipQS`            | `Boolean`   | ❌        | If `true`, skips query string on redirect (default: `false`) |
+| `archived`          | `Boolean`   | ❌        | If `true`, archives the short link (default: `false`)        |
 | `splitURL`          | `String`    | ❌        | URL for A/B testing                                          |
 | `splitPercent`      | `Int`       | ❌        | Split percentage for A/B testing                             |
 | `integrationAdroll` | `String`    | ❌        | AdRoll integration token                                     |
