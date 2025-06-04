@@ -21,7 +21,7 @@ To install the SDK via JitPack:
 
 To add the JitPack repository to your build file, Add it in your root `settings.gradle` at the end of repositories:
 
-#### For Gradle:
+#### For `settings.gradle`:
 ```java
 dependencyResolutionManagement {
 	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -32,7 +32,7 @@ dependencyResolutionManagement {
 }
 ```
 
-#### For Gradle.kts
+#### For `settings.gradle.kts`
 ```kotlin
 dependencyResolutionManagement {
 	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
