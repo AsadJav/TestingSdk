@@ -52,7 +52,7 @@ It will be:
 ```kotlin
 dependencies {
 	implementation("com.github.User:Repo:Tag") // Example
-	implementation("com.github.AsadJav:TestingSdk:v1.0.3") // Use this
+	implementation("com.github.AsadJav:TestingSdk:v1.0.7") // Use this
 }
 ```
 ### 3. Sync the Project
