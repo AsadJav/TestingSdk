@@ -1,11 +1,13 @@
 package com.github.shortiosdk
 
+import com.github.shortiosdk.Helpers.StringOrIntSerializer
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import com.google.gson.Gson
 import okhttp3.RequestBody.Companion.toRequestBody
 import com.github.shortiosdk.ShortIOResult
 import com.github.shortiosdk.ShortIOErrorModel
+import com.google.gson.GsonBuilder
 
 
 object ShortioSdk {
@@ -13,35 +15,12 @@ object ShortioSdk {
         apiKey: String,
         parameters: ShortIOParametersModel
     ): ShortIOResult {
-        val gson = Gson()
+        val gson = GsonBuilder()
+            .registerTypeAdapter(StringOrInt::class.java, StringOrIntSerializer())
+            .create()
         val client = OkHttpClient()
         val mediaType = "application/json".toMediaType()
-                val rawExpiresAt = when (val ea = parameters.expiresAt) {
-            is StringOrInt.Str -> ea.value
-            is StringOrInt.IntVal -> ea.value
-            else -> null
-        }
-        val rawTtl = when (val t = parameters.ttl) {
-            is StringOrInt.Str -> t.value
-            is StringOrInt.IntVal -> t.value
-            else -> null
-        }
-
-        val rawCreatedAt = when (val c = parameters.createdAt) {
-            is StringOrInt.Str -> c.value
-            is StringOrInt.IntVal -> c.value
-            else -> null
-        }
-        val transformedParams = TransformedShortIOParametersModel(
-            originalURL = parameters.originalURL, cloaking = parameters.cloaking, password = parameters.password, redirectType = parameters.redirectType,
-            expiresAt = rawExpiresAt, expiredURL = parameters.expiredURL, title = parameters.title, tags = parameters.tags, utmSource = parameters.utmSource,
-            utmMedium = parameters.utmMedium, utmCampaign = parameters.utmCampaign, utmTerm = parameters.utmTerm, utmContent = parameters.utmContent, ttl = rawTtl,
-            path = parameters.path, androidURL = parameters.androidURL, iphoneURL = parameters.iphoneURL, createdAt = rawCreatedAt, clicksLimit = parameters.clicksLimit,
-            passwordContact = parameters.passwordContact, skipQS = parameters.skipQS, archived = parameters.archived, splitURL = parameters.splitURL, splitPercent = parameters.splitPercent,
-            integrationAdroll = parameters.integrationAdroll, integrationFB = parameters.integrationFB, integrationGA = parameters.integrationGA, integrationGTM = parameters.integrationGTM,
-            domain = parameters.domain, folderId = parameters.folderId
-        )
-        val jsonBody = gson.toJson(transformedParams)
+        val jsonBody = gson.toJson(parameters)
         val body = jsonBody.toRequestBody(mediaType)
 
         val request = Request.Builder()
@@ -71,7 +50,7 @@ object ShortioSdk {
         } else {
             val errorModel = try {
                 responseBody?.let {
-                    gson.fromJson(it, ShortIOErrorModel::class.java).copy(statusCode = response.code)
+                    gson.fromJson(it, ShortIOErrorModel::class.java)?.copy(statusCode = response.code)
                 } ?: ShortIOErrorModel(
                     message = "Unknown error",
                     statusCode = response.code,
@@ -80,13 +59,13 @@ object ShortioSdk {
                 )
             } catch (e: Exception) {
                 ShortIOErrorModel(
-                    message = "Malformed error response",
+                    message = "Malformed error response: ${e.localizedMessage}",
                     statusCode = response.code,
                     code = "INVALID_JSON",
                     success = false
                 )
             }
-            ShortIOResult.Error(errorModel)
+            return ShortIOResult.Error(errorModel)
         }
     }
 }
