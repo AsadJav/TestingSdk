@@ -128,7 +128,7 @@ The `ShortIOParameters` struct is used to define the details of the short link y
 | `cloaking`          | `Boolean`   | ❌        | If `true`, hides the destination URL from the user           |
 | `password`          | `String`    | ❌        | Password to protect the short link                           |
 | `redirectType`      | `Int`       | ❌        | Type of redirect (e.g., 301, 302)                            |
-| `expiresAt`         | `StringOrInt`| ❌        | Expiration timestamp in Unix format                          |
+| `expiresAt`         | `String Or Int`| ❌     | Expiration timestamp in Unix format                          |
 | `expiredURL`        | `String`    | ❌        | URL to redirect after expiration                             |
 | `title`             | `String`    | ❌        | Custom title for the link                                    |
 | `tags`              | `[String]`  | ❌        | Tags to categorize the link                                  |
@@ -137,11 +137,11 @@ The `ShortIOParameters` struct is used to define the details of the short link y
 | `utmCampaign`       | `String`    | ❌        | UTM campaign parameter                                       |
 | `utmTerm`           | `String`    | ❌        | UTM term parameter                                           |
 | `utmContent`        | `String`    | ❌        | UTM content parameter                                        |
-| `ttl`               | `StringOrInt`| ❌        | Time to live for the short link                              |
+| `ttl`               | `String Or Int`| ❌        | Time to live for the short link                           |
 | `path`              | `String`    | ❌        | Custom path for the short link                               |
 | `androidURL`        | `String`    | ❌        | Fallback URL for Android                                     |
 | `iphoneURL`         | `String`    | ❌        | Fallback URL for iPhone                                      |
-| `createdAt`         | `StringOrInt`| ❌        | Custom creation timestamp                                    |
+| `createdAt`         | `String Or Int`| ❌     | Custom creation timestamp. It must be Int or numeric value in a String                                   |
 | `clicksLimit`       | `Int`       | ❌        | Maximum number of clicks allowed                             |
 | `passwordContact`   | `Boolean`   | ❌        | Whether contact details are required for password access     |
 | `skipQS`            | `Boolean`   | ❌        | If `true`, skips query string on redirect (default: `false`) |
@@ -154,29 +154,6 @@ The `ShortIOParameters` struct is used to define the details of the short link y
 | `integrationGTM`    | `String`    | ❌        | Google Tag Manager container ID                              |
 | `folderId`          | `String`    | ❌        | ID of the folder where the link should be created            |
 
-## ⚠️ Import And Use of `StringOrInt` Type for Specific Parameters
-
-To Import **`StringOrInt`** type for specific parameters like **expiresAt**, **ttl** and **createdAt**:
-
-```kotlin
-import com.github.shortiosdk.StringOrInt
-```
-
-And to use it:
-
-```kotlin
-val params = ShortIOParametersModel(
-    // Example # 01
-    expiresAt = StringOrInt.IntVal(1) // OR
-    expiresAt = StringOrInt.Str("1")
-    // Example # 02
-    ttl = StringOrInt.Str("Hello") // OR
-    ttl = StringOrInt.IntVal(1)
-    // Example # 03
-    createdAt = StringOrInt.Str("Hello1234") //OR
-    createdAt = StringOrInt.IntVal(1)
-)
-```
 
 ## 🤖 Deep Linking Setup
 To handle deep links via Short.io on Android, you'll need to set up Android App Links properly using your domain's Digital Asset Links and intent filters.
