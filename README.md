@@ -156,7 +156,7 @@ The `ShortIOParameters` struct is used to define the details of the short link y
 
 ## ⚠️ Import And Use of `StringOrInt` Type for Specific Parameters
 
-To Import **`StringOrInt`** typr for specific parameters like **expiresAt**, **ttl** and **createdAt**:
+To Import **`StringOrInt`** type for specific parameters like **expiresAt**, **ttl** and **createdAt**:
 
 ```kotlin
 import com.github.shortiosdk.StringOrInt
